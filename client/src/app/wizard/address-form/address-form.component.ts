@@ -26,9 +26,7 @@ export class AddressFormComponent implements ControlValueAccessor, OnDestroy {
 
   @Input()
   legend: string;
-  onTouched = () => {};
   onChangeSub: Subscription;
-
   form: FormGroup = this.fb.group({
     name: [null, [Validators.required]],
     street: [null, [Validators.required]],
@@ -36,6 +34,7 @@ export class AddressFormComponent implements ControlValueAccessor, OnDestroy {
     state: [null, [Validators.required]],
     zipCode: [null, [Validators.required]],
   });
+  onTouched = () => {};
 
   constructor(private fb: FormBuilder) {
 

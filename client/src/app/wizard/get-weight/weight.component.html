@@ -2,11 +2,26 @@
 
   <mat-form-field>
     <input type="number" matInput placeholder="weight" formControlName="weight">
-    <mat-error *ngIf="form.errors?.weight && form.dirty">
-      The weight Required.</mat-error>
-
   </mat-form-field>
+  <ng-container
+    *ngIf="weight.errors | onlyOneError:['required','min','max','pattern'] as error">
 
+    <div class="field-message" *ngIf="error.min && weight.touched">
+      Your weight must have minimum 1 chars,
+      but it only has {{error.min.actual}}.
+    </div>
+
+    <div class="field-message" *ngIf="error.max && weight.touched">
+      Your weight must have maximum 9999 chars,
+      but it  has {{error.max.actual}}.
+    </div>
+    <div class="field-message" *ngIf="error.pattern && weight.touched">
+      Your weight must have  numeric characters.
+    </div>
+    <div class="field-message" *ngIf="error.required && weight.touched">
+      Your weight is mandatory.
+    </div>
+  </ng-container>
 </div>
 
 <!--<div class="form-val">-->

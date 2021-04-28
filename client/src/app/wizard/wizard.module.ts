@@ -12,6 +12,7 @@ import {ShippingOptionComponent} from './get-shipping-option/shippingOption.comp
 import {ConfirmComponent} from './confirm/confirm.component';
 import {AddShippingInformationComponent} from './add-shipping-information/shippingInformation.component';
 import {WizardService} from './wizard.service';
+import {OnlyOneErrorPipe} from './get-weight/only-one-error.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {WizardService} from './wizard.service';
     WeightComponent,
     ShippingOptionComponent,
     ConfirmComponent,
-    AddShippingInformationComponent
+    AddShippingInformationComponent,
+    OnlyOneErrorPipe
   ],
   imports: [
     CommonModule,

@@ -29,7 +29,7 @@ export class AppComponent implements  OnInit {
     if (user) {
       this.subject.next(JSON.parse(user));
     }
-    this.isLoggedIn$ = this.user$.pipe(map(user => !!user));
+    this.isLoggedIn$ = this.user$.pipe(map(users => !!users));
     this.isLoggedOut$ = this.isLoggedIn$.pipe(map(loggedIn => !loggedIn));
   }
 

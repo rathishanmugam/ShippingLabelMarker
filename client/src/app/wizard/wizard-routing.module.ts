@@ -9,7 +9,7 @@ const routes: Routes = [
     component: WizardComponent
   },
   {
-    path: 'wizard/add-shippingInfo',
+    path: 'shippingInfo/add-shippingInfo',
     component: AddShippingInformationComponent
   },
 ];
