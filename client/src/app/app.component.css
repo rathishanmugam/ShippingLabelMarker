@@ -1,0 +1,11 @@
+.toolbar-tools {
+  display: flex;
+}
+.menu-item {
+  text-transform: uppercase;
+  cursor:pointer;
+}
+
+.menu-item.menu-item-active {
+  text-decoration: underline;
+}

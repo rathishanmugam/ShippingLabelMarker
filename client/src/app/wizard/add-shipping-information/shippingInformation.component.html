@@ -1,0 +1,74 @@
+<h1 class="title">Shipping Label Maker</h1>
+<div class="create-course-panel data-form">
+  <mat-horizontal-stepper [linear]="true"
+                          class="mat-elevation-z5" labelPosition="bottom" #stepper>
+
+    <mat-step [stepControl]="step1.form" errorMessage="Sender Address in error">
+      <ng-template matStepLabel>Sender Address details</ng-template>
+      <sender-address #step1></sender-address>
+      <div class="stepper-buttons">
+        <button mat-raised-button color="primary" matStepperNext [disabled]="step1.form.invalid" >
+          Continue to Step 2</button>
+      </div>
+    </mat-step>
+
+
+
+    <mat-step [stepControl]="step2.form" errorMessage="Receiver Address in error">
+      <ng-template matStepLabel>Receiver Address details</ng-template>
+      <receiver-address #step2></receiver-address>
+      <div class="stepper-buttons">
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" [disabled]="step2.form.invalid" matStepperNext>
+          Continue to Step 3</button>
+      </div>
+    </mat-step>
+
+
+    <mat-step [stepControl]="step3.form" errorMessage="Weight in error">
+      <ng-template matStepLabel>Weight Details</ng-template>
+      <weight #step3></weight>
+      <div class="stepper-buttons">
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" [disabled]="step3.form.invalid" matStepperNext>
+          Continue to Step 4</button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="step4.form" errorMessage="Shipping Option in error">
+      <ng-template matStepLabel>Shipping Option Details</ng-template>
+      <shipping-option #step4></shipping-option>
+      <div class="stepper-buttons">
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" [disabled]="step4.form.invalid" matStepperNext>
+          Continue to Step 5</button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="step5" errorMessage="Confirm in error">
+      <ng-template matStepLabel>Confirm Details</ng-template>
+      <confirm #step5></confirm>
+      <div class="stepper-buttons">
+        <button mat-raised-button matStepperPrevious>Back</button>
+<!--        <button mat-raised-button (click)="stepper.reset()">Reset</button>-->
+        <button mat-raised-button color="primary"
+                [disabled]="step2.form.invalid || step1.form.invalid || step3.form.invalid || step4.form.invalid "
+                (click)="submit(step1.form.value, step2.form.value, step3.form.value, step4.form.value)">
+          Complete
+        </button>
+
+      </div>
+
+    </mat-step>
+
+  </mat-horizontal-stepper>
+
+
+</div>
+
+
+<!--<div class="scrolling-space">-->
+
+
+<!--</div>-->
+

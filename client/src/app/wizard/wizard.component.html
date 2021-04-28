@@ -1,0 +1,16 @@
+<div class="course">">
+  <div class="mat-elevation-z8">
+
+  <div class="header">
+<h1 class="title">Shipping Label Maker</h1>
+<button mat-mini-fab routerLink="wizard/add-shippingInfo">
+  <mat-icon class="add-course-btn">add</mat-icon>
+</button>
+  </div>
+    <div *ngIf="shippingOption">
+    <pre>{{shippingOption | json}}</pre>
+</div>
+  </div>
+</div>
+
+

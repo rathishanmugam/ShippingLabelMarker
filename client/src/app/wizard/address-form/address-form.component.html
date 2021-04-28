@@ -1,0 +1,66 @@
+<fieldset [formGroup]="form">
+
+    <legend>{{legend}}</legend>
+  <div fxLayout="column">
+    <mat-form-field class="example-full-width">
+
+        <input matInput
+               placeholder="Name"
+               formControlName="name" (blur)="onTouched()" #name>
+      <mat-hint align="end">
+        {{ name.value.length }} / 60
+      </mat-hint>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+
+        <input matInput
+               placeholder="Street"
+               formControlName="street" (blur)="onTouched()" #street>
+      <mat-hint align="end">
+        {{ street.value.length }} / 60
+      </mat-hint>
+
+    </mat-form-field>
+  </div>
+
+  <div fxLayoutGap="20%">
+  <mat-form-field class="example-full-width">
+
+    <input matInput
+           placeholder="City"
+           formControlName="city" (blur)="onTouched()">
+
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+
+    <input matInput
+           placeholder="State"
+           formControlName="state" (blur)="onTouched()">
+
+  </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+
+        <input matInput
+               placeholder="Zip Code"
+               formControlName="zipCode" (blur)="onTouched()">
+    </mat-form-field>
+  </div>
+
+<!--    <div class="form-val">-->
+
+<!--        {{form.value | json}}-->
+
+<!--    </div>-->
+
+<!--    <div class="form-val">-->
+
+<!--        {{form.valid | json}}-->
+
+<!--    </div>-->
+
+</fieldset>
