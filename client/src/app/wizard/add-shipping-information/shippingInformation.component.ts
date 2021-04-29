@@ -20,7 +20,6 @@ enum ShippingOption {
 export class AddShippingInformationComponent implements OnInit {
   public obj;
   public ShippingOptions = ShippingOption;
-
   form: FormGroup;
   private shippingCost;
   constructor(
@@ -38,20 +37,8 @@ export class AddShippingInformationComponent implements OnInit {
     this.shippingCost = Math.floor(parseInt(step3.weight, 10) * shippingRate * parseInt(step4.shippingOption, 10));
     console.log('THE SHIPING COST ======>', this.shippingCost);
     this.obj = {
-      from: {
-        name: step1.address.name,
-        street: step1.address.street,
-        city: step1.address.city,
-        state: step1.address.state,
-        zip: step1.address.zipCode
-      },
-      to: {
-        name: step2.address.name,
-        street: step2.address.street,
-        city: step2.address.city,
-        state: step2.address.state,
-        zip: step2.address.zipCode
-      },
+      from: {...step1.address},
+      to: {...step2.address},
       weight: step3.weight,
       shippingOption: step4.shippingOption,
       shippingCost: this.shippingCost
